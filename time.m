@@ -15,7 +15,7 @@ end
 
 %if we want a stop
 if intName==0
-	arrTime = zeros(floor(intBaseFS*realStopTime));
+	arrTime = zeros(1,floor(intBaseFS*realStopTime));
 	return
 end
 
@@ -31,4 +31,4 @@ for i=1:(intName-1)
 	realMyFr = realMyFr*((realBaseDelta)^(ltFsDelta(i)));
 end
 
-arrTime = ones(floor(intBaseFS*realBaseTime*(4/intBeat)),1)*realMyFr;
+arrTime = ones(1,floor(intBaseFS*realBaseTime*(4/intBeat)))*realMyFr;
