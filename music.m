@@ -17,7 +17,7 @@ ltSound = [time(chrForC,5,0,4,intBaseFS),...
 		 time(chrForC,0,0,0,intBaseFS),...
 		 time(chrForC,2,0,2,intBaseFS)];
 ltSize = size(ltSound);
-ltTime = [1:ltSize(2)]/8000;
+ltTime = [1:ltSize(2)]/intBaseFS;
 ltFinalMusic = sin(2*pi*ltSound.*ltTime);
 sound(ltFinalMusic);
 

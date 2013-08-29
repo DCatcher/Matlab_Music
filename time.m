@@ -1,6 +1,6 @@
 function arrTime = time(chrForC, intName, intOrder, intBeat, intBaseFS)
 %some constant here
-realBaseTime = 0.5;
+realBaseTime = 0.6;
 realStopTime = 0.1;
 realBaseDelta = 2^(1.0/12);
 
