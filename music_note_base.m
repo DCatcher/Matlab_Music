@@ -3,6 +3,8 @@ intBaseFS = 8000;
 realBaseTime = 0.6;
 chrForC = 'F';
 intSizeX = size(ltMusicNote);intSizeX = intSizeX(1);
+realSecond = 0.2;
+realThird = 0.3;
 
 intBoolFirst = 0;
 arrNoteBase = [];
@@ -22,7 +24,9 @@ for i=1:intSizeX
 	
 	intLengthTmp = intBaseFS*realBaseTime*4/intBeatNow;
 	ltTime = [1:intLengthTmp]/8000;
-	arrNowMusic = time_envelope(intBeatNow, intBaseFS).*sin(2*pi*time(chrForC,intNameNow,intOrderNow,intBeatNow,intBaseFS).*ltTime);
+	ltTimeEn = time_envelope(intBeatNow, intBaseFS);
+	ltTimeFr = time(chrForC,intNameNow,intOrderNow,intBeatNow,intBaseFS);
+	arrNowMusic = ltTimeEn.*(sin(2*pi*ltTimeFr.*ltTime)+realSecond*sin(2*pi*2*ltTimeFr.*ltTime)+realThird*sin(2*pi*ltTimeFr.*ltTime));
 	intLengthNow = size(arrNoteBase);intLengthNow = intLengthNow(2);
 	arrNoteBase = [arrNoteBase(1:(intLengthNow-intLengthAdd)),...
 					arrNoteBase(intLengthNow-intLengthAdd+1:intLengthNow)+arrNowMusic(1:intLengthAdd),...

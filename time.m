@@ -15,16 +15,16 @@ end
 
 %if we want a stop
 if intName==0
-	arrTime = zeros(1,floor(intBaseFS*realStopTime));
+	arrTime = zeros(1,floor(intBaseFS*realBaseTime*4/intBeat));
 	return
 end
 
 %if we want the music
 realMyFr = realBaseFr;
-if intOrder==-1
-	realMyFr = realMyFr/2;
-elseif intOrder == 1
-	realMyFr = realMyFr*2;
+if intOrder<0
+	realMyFr = realMyFr/(2^intOrder);
+elseif intOrder >0
+	realMyFr = realMyFr*(2^intOrder);
 end
 
 for i=1:(intName-1)
